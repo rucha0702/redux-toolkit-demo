@@ -37,7 +37,7 @@ export const ContactSlice = createSlice({
                 phone:action.payload.phone
             });
             state.contacts.forEach((contact, index) => {
-                contact.id = index + 1;
+                contact.id = index;
             });
             localStorage.setItem("contacts", JSON.stringify(state.contacts));
       },
@@ -48,7 +48,7 @@ export const ContactSlice = createSlice({
       deleteContact:(state, action:PayloadAction<number>) =>{
             state.contacts.splice(action.payload,1);
             state.contacts.forEach((contact, index) => {
-                contact.id = index + 1;
+                contact.id = index;
             });
             localStorage.setItem("contacts", JSON.stringify(state.contacts));
       },
