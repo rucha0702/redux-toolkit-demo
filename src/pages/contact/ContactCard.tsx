@@ -13,22 +13,33 @@ const ContactCard: React.FC = ()=>{
        id:-1,
        fname:'',
        lname:'',
-       phone:null,
+       phone:0,
     });
 
+    
  
     const handleSave: React.MouseEventHandler<HTMLButtonElement> = () => {
-            dispatch(addContact(contact));
+        if(contact.fname&&contact.lname&&contact.phone)
+            {
+                dispatch(addContact(contact));
+            
             setContact({
                 id:-1,
                 fname:'',
                 lname:'',
                 phone:0,
              });
+            }
+            else
+            {
+                alert("Please fill all the details");
+            }
     };
-
     return(
-        <div className='border border-gray-600 p-2'>
+        <div className='border border-gray-200 bg-violet-100 p-2 w-full lg:w-1/2'>
+
+            <div className='w-fit'>
+
             <div>
                 <InputBox type={'text'} title={'First Name'} value={contact.fname} name={'fname'} setContact = {setContact}/>
             </div>
@@ -39,9 +50,12 @@ const ContactCard: React.FC = ()=>{
                 <InputBox type={'number'} title={'Mobile'} value={contact.phone} name={'phone'} setContact = {setContact}/>
             </div>
 
-            <div>
-                <button onClick={handleSave}>Save</button>
+            <button  onClick={handleSave} className='text-left font-bold cursor-pointer hover:bg-violet-400 my-5 px-16 py-2 bg-violet-300 rounded-sm w-full'>
+              Add Contact
+            </button>
+
             </div>
+
         </div>
     )
 }

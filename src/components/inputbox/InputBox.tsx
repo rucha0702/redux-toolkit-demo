@@ -7,7 +7,8 @@ import { Contact } from "../../store/features/contactSlice";
   interface InputBoxProps {
     type: string;
     title: string;
-    value: string | number | null;
+    value: string | number;
+    // value: string | number | null;
     name: string;
     setContact: React.Dispatch<React.SetStateAction<Contact>>;
 }
