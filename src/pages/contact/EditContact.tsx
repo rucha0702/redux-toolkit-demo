@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import InputBox from "../../components/inputbox/InputBox";
 import { useAppSelector, useAppDispatch } from "../../store/store";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { editContact } from "../../store/features/contactSlice";
 import {Contact} from '../../store/features/contactSlice.ts';
 
@@ -15,7 +15,7 @@ interface InputBoxProps {
 const EditContact:React.FC<InputBoxProps> = ({setIdSelected}) => {
 
   const dispatch = useAppDispatch();
-  const selectedId = useAppSelector(state=>state.selected.selectedId);
+  // const selectedId = useAppSelector(state=>state.selected.selectedId);
   const contactSelected = useAppSelector(state=>state.contact.contacts[state.selected.selectedId]);
 
 const [contact, setContact] = useState<Contact>(contactSelected || {
