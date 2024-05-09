@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 // import {useQuery, QueryKey} from '@tanstack/react-query';
 import axios from 'axios';
 import { MapContainer, Marker, TileLayer, Popup} from 'react-leaflet';
+import { Icon } from 'leaflet';
 import './Map.css';
 import 'leaflet/dist/leaflet.css';
 
@@ -67,6 +68,10 @@ const Map:React.FC = () => {
     //     popup:"heiu"
     //   }
     // ]
+    const customIcon = new Icon({
+      iconUrl:'https://res.cloudinary.com/de4by5q8o/image/upload/v1715246977/blue_udrzjz.png',
+      iconSize:[38,38]
+    })
   return (
     <div>
       <div>
@@ -76,7 +81,7 @@ const Map:React.FC = () => {
               <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url='https://tile.openstreetmap.org/{z}/{x}/{y}.png'></TileLayer>
                { data?
                 data.map((marker:any, id:number)=>
-                  <Marker key={id} position={[marker.countryInfo.lat,marker.countryInfo.long]}>
+                  <Marker key={id} position={[marker.countryInfo.lat,marker.countryInfo.long]} icon={customIcon}>
                     <Popup> 
                       <h2>Active: {marker.active}</h2>
                       <h2>Recovered: {marker.recovered}</h2>
