@@ -5,8 +5,8 @@ import './index.css';
 import {BrowserRouter} from 'react-router-dom';
 import { store } from './store/store.ts';
 import { Provider } from 'react-redux';
-import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
-import { QueryClient, QueryClientProvider } from 'react-query';
+// import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
+// import { QueryClient, QueryClientProvider } from 'react-query';
 
 // const queryClient = new QueryClient()
 
